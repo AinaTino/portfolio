@@ -189,7 +189,7 @@ function App() {
 
         <ContactSection
             email="andriamananatino@gmail.com"
-            linkedinUrl={undefined}
+            linkedinUrl="https://www.linkedin.com/in/aina-tino-andriamanana"
             githubUrl="https://github.com/AinaTino"
         />
 

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 interface ContactSectionProps {
     email: string;
@@ -18,7 +19,6 @@ function GithubIcon() {
     );
 }
 
-
 function LinkedinIcon() {
     return (
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -27,9 +27,14 @@ function LinkedinIcon() {
     );
 }
 
+// Récupère ces 3 valeurs depuis ton dashboard EmailJS
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 function ContactSection({ email, linkedinUrl, githubUrl, className = "" }: ContactSectionProps) {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
-    const [status, setStatus] = useState<"idle" | "sent">("idle");
+    const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,11 +42,35 @@ function ContactSection({ email, linkedinUrl, githubUrl, className = "" }: Conta
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // plug your email service / API call here
-        setStatus("sent");
+        setStatus("sending");
+
+        try {
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    name: form.name,
+                    email: form.email,
+                    message: form.message,
+                },
+                EMAILJS_PUBLIC_KEY
+            );
+            setStatus("sent");
+            setForm({ name: "", email: "", message: "" });
+        } catch (err) {
+            console.error("EmailJS error:", err);
+            setStatus("error");
+        }
     };
+
+    const buttonLabel = {
+        idle: "Send message",
+        sending: "Sending...",
+        sent: "Message sent ✓",
+        error: "Failed — try again",
+    }[status];
 
     return (
         <section className={`w-full py-16 px-6 md:px-16 ${className}`}>
@@ -108,11 +137,12 @@ function ContactSection({ email, linkedinUrl, githubUrl, className = "" }: Conta
 
                     <motion.button
                         type="submit"
+                        disabled={status === "sending"}
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="px-6 py-3 font-serif text-lg bg-amber-950 text-amber-50"
+                        className="px-6 py-3 font-serif text-lg bg-amber-950 text-amber-50 disabled:opacity-60"
                     >
-                        {status === "sent" ? "Message sent ✓" : "Send message"}
+                        {buttonLabel}
                     </motion.button>
                 </motion.form>
 
@@ -123,7 +153,6 @@ function ContactSection({ email, linkedinUrl, githubUrl, className = "" }: Conta
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="mt-10 pt-8 border-t border-amber-700/30"
                 >
-                    {/* 3 icônes centrées, pas de fond blanc */}
                     <div className="flex justify-center gap-8">
                         <motion.a
                             href={`mailto:${email}`}
@@ -161,14 +190,13 @@ function ContactSection({ email, linkedinUrl, githubUrl, className = "" }: Conta
                         )}
                     </div>
 
-                    {/* Copyright */}
                     <p className="text-center font-serif text-xs text-stone-500 mt-6">
                         © {new Date().getFullYear()} AinaTino
                     </p>
                 </motion.div>
-        </div>
-</section>
-);
+            </div>
+        </section>
+    );
 }
 
 export default ContactSection;
