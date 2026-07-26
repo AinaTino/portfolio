@@ -7,6 +7,17 @@ import ProjectsSection from "./components/ProjectSection.tsx";
 import SkillsTimeline from "./components/SkillsTimeLine.tsx";
 import ContactSection from "./components/ContactSection.tsx";
 import Navbar from "./components/NavBar.tsx";
+import {
+    profile,
+    heroImg,
+    c2eImg,
+    staffImg,
+    indabaxImg,
+    emitImg,
+    virtradeImg,
+    matereliaImg, emptyImg,
+} from "./assets/images";
+
 
 const navLinks = [
     { label: "About", href: "#about" },
@@ -50,31 +61,31 @@ const experiences = [
         number: "01",
         title: "Systems & Network Intern",
         description: "Oct 2025 – Jan 2026 • DGI, SSIF Ambohijatovo • Built a captive portal with pfSense and FreeRADIUS over LDAP.",
-        image: "src/assets/hero.png",
+        image: heroImg,
     },
     {
         number: "02",
         title: "Mentor",
         description: "2024–2026 • C2E, ENI • Supported students through practical guidance and project-oriented mentoring.",
-        image: "src/assets/c2e.png",
+        image: c2eImg,
     },
     {
         number: "03",
         title: "Staff",
         description: "2026 - HIU Hackathon • Helped run a national inter-university competition at ENI with a strong technical focus.",
-        image: "src/assets/staff.jpg",
+        image: staffImg,
     },
     {
         number: "04",
         title: "Organizing Team Member",
         description: "IndabaX Madagascar • Contributed to event coordination and the hackathon/ideathon organisational team.",
-        image: "src/assets/indabax.jpg",
+        image: indabaxImg,
     },
     {
         number: "05",
         title: "HackBot - Hackathon",
         description: "First place in the algorithmic challenge category. Organised by ESTEM",
-        image: "./src/assets/emit.jpg",
+        image: emitImg,
     },
 ];
 
@@ -83,32 +94,31 @@ const projects = [
         title: "VirTrade",
         description: "Virtual stock-trading platform. I owned the Core layer and Orders controller, building the order book and matching engine.",
         tags: ["C#", "ASP.NET Core", "Entity Framework Core", "PostgreSQL", "Docker"],
-        image: "src/assets/virtrade.png",
+        image: virtradeImg,
         repoUrl: "https://github.com/AinaTino/VirTrade.git",
     },
     {
         title: "Materelia",
         description: "Materials management app with role-based access for admins, technicians, and users. I built the dashboard, assignments, and user management flows.",
         tags: ["Flutter", "Supabase", "Riverpod"],
-        image: "src/assets/materelia.jpg",
+        image: matereliaImg,
         repoUrl: "https://github.com/AinaTino/Materelia.git",
     },
     {
         title: "TaskCalendar",
         description: "Calendar and task app for planning routines and day-to-day work.",
         tags: ["Flask", "SQLite3", "React", "Vite", "Tailwind CSS"],
-        image: "src/assets/heroo.png",
+        image: emptyImg,
         repoUrl: "https://github.com/AinaTino/TaskCalendar.git",
     },
     {
         title: "StopMiddlingMe",
         description: "Android app that detects MITM attacks on the device layer.",
         tags: ["Kotlin", "Jetpack Compose"],
-        image: "src/assets/picc.jpg",
+        image: emptyImg,
         repoUrl: "https://github.com/AinaTino/StopMiddlingMe.git",
     },
 ];
-
 
 function App() {
     return (
@@ -141,7 +151,7 @@ function App() {
                     overflow-hidden
                   ">
                     <img
-                        src="src/assets/pic1.jpg"
+                        src={profile}
                         alt={"Just my pic"}
                         className="h-full w-full object-cover"
                     />
