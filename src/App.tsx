@@ -74,7 +74,7 @@ const experiences = [
         number: "05",
         title: "HackBot - Hackathon",
         description: "First place in the algorithmic challenge category. Organised by ESTEM",
-        image: "src/assets/emit.jpg",
+        image: "./src/assets/emit.jpg",
     },
 ];
 
