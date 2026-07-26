@@ -1,5 +1,5 @@
 // components/SkillsTimeline.tsx
-import { useLayoutEffect, useRef, useState } from "react";
+import {useLayoutEffect, useRef, useState} from "react";
 import {
     motion,
     AnimatePresence,
@@ -16,11 +16,12 @@ interface SkillCategory {
 }
 
 interface SkillsTimelineProps {
-    categories: SkillCategory[];
-    className?: string;
+    categories: SkillCategory[],
+    className?: string,
+    id?: string
 }
 
-function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
+function SkillsTimeline({categories, className = "", id}: SkillsTimelineProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [dotYs, setDotYs] = useState<number[]>([]);
@@ -47,7 +48,7 @@ function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
         return () => ro.disconnect();
     }, [categories]);
 
-    const { scrollYProgress } = useScroll({
+    const {scrollYProgress} = useScroll({
         target: containerRef,
         offset: ["start center", "end center"],
     });
@@ -65,27 +66,27 @@ function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
     });
 
     return (
-        <section className={`w-full py-16 px-6 md:px-16 ${className}`}>
+        <section id={id} className={`w-full py-16 px-6 md:px-16 ${className}`}>
             <motion.h2
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                initial={{opacity: 0, x: -20}}
+                whileInView={{opacity: 1, x: 0}}
+                viewport={{once: true}}
+                transition={{duration: 0.5}}
                 className="text-3xl font-semibold text-amber-950 relative inline-block mb-16"
             >
                 Skills
-                <span className="absolute -bottom-2 left-0 w-12 h-[3px] bg-amber-700" />
+                <span className="absolute -bottom-2 left-0 w-12 h-[3px] bg-amber-700"/>
             </motion.h2>
 
             <div ref={containerRef} className="relative max-w-4xl mx-auto">
                 <div
                     className="absolute left-1/2 -translate-x-1/2 top-0 w-[3px] bg-stone-300"
-                    style={{ height: trackHeight }}
+                    style={{height: trackHeight}}
                 />
 
                 <motion.div
                     className="absolute left-1/2 -translate-x-1/2 top-0 w-[3px] bg-gradient-to-b from-amber-500 to-amber-800 rounded-full"
-                    style={{ height: fillHeight }}
+                    style={{height: fillHeight}}
                 />
 
                 {dotYs.map((y, i) => {
@@ -97,17 +98,17 @@ function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
                         <div
                             key={i}
                             className="absolute"
-                            style={{ top: y, left: "50%" }}
+                            style={{top: y, left: "50%"}}
                         >
                             {/* Le point — centrage unique, propre */}
                             <motion.div
                                 className="w-3 h-3 rounded-full border-2 relative z-10"
-                                style={{ transform: "translate(-50%, -50%)" }}
+                                style={{transform: "translate(-50%, -50%)"}}
                                 animate={{
                                     backgroundColor: firedDots[i] ? "#78350f" : "#fff",
                                     borderColor: "#78350f",
                                 }}
-                                transition={{ duration: 0.3 }}
+                                transition={{duration: 0.3}}
                             />
 
                             {/* Tirets — uniquement du côté du texte descriptif */}
@@ -117,13 +118,13 @@ function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
                                         <motion.span
                                             key={d}
                                             className="block w-2 h-[2px] bg-amber-700"
-                                            initial={{ opacity: 0, x: 6 }}
+                                            initial={{opacity: 0, x: 6}}
                                             animate={
                                                 firedDots[i]
-                                                    ? { opacity: 1, x: 0 }
-                                                    : { opacity: 0, x: 6 }
+                                                    ? {opacity: 1, x: 0}
+                                                    : {opacity: 0, x: 6}
                                             }
-                                            transition={{ duration: 0.25, delay: d * 0.06 }}
+                                            transition={{duration: 0.25, delay: d * 0.06}}
                                         />
                                     ))}
                                 </div>
@@ -133,13 +134,13 @@ function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
                                         <motion.span
                                             key={d}
                                             className="block w-2 h-[2px] bg-amber-700"
-                                            initial={{ opacity: 0, x: -6 }}
+                                            initial={{opacity: 0, x: -6}}
                                             animate={
                                                 firedDots[i]
-                                                    ? { opacity: 1, x: 0 }
-                                                    : { opacity: 0, x: -6 }
+                                                    ? {opacity: 1, x: 0}
+                                                    : {opacity: 0, x: -6}
                                             }
-                                            transition={{ duration: 0.25, delay: d * 0.06 }}
+                                            transition={{duration: 0.25, delay: d * 0.06}}
                                         />
                                     ))}
                                 </div>
@@ -176,7 +177,7 @@ function SkillsTimeline({ categories, className = "" }: SkillsTimelineProps) {
                                     )}
                                 </div>
 
-                                <div className="w-10 flex-shrink-0" />
+                                <div className="w-10 flex-shrink-0"/>
 
                                 <div className="w-[42%] flex justify-start">
                                     {cardOnRight ? (
@@ -216,10 +217,10 @@ function StackCard({
     return (
         <motion.div
             ref={innerRef}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4 }}
+            initial={{opacity: 0, y: 20}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true, margin: "-100px"}}
+            transition={{duration: 0.4}}
             className="w-full bg-white border border-amber-700/40 shadow-lg p-5"
         >
             <h3 className="font-serif font-semibold text-lg text-amber-950 mb-3">
@@ -251,16 +252,16 @@ function DescriptionBlock({
     return (
         <div
             className="w-full min-h-[3rem] flex items-center"
-            style={{ justifyContent: align === "right" ? "flex-end" : "flex-start" }}
+            style={{justifyContent: align === "right" ? "flex-end" : "flex-start"}}
         >
             <AnimatePresence mode="wait">
                 {active && (
                     <motion.p
                         key="desc"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.3 }}
+                        initial={{opacity: 0, y: 10}}
+                        animate={{opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: 10}}
+                        transition={{duration: 0.3}}
                         className={`font-serif text-sm text-stone-600 leading-relaxed ${
                             align === "right" ? "text-right" : "text-left"
                         }`}
