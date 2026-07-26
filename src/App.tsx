@@ -19,82 +19,94 @@ const navLinks = [
 
 const skillCategories = [
     {
+        title: "Backend / API",
+        description: "Designing reliable services and APIs with strong architecture and data modeling.",
+        skills: ["C#", "ASP.NET Core", "Entity Framework Core", "PostgreSQL", "REST APIs", "WebSockets", "Django REST", "Python"],
+    },
+    {
+        title: "DevOps & Systems",
+        description: "Shipping and operating software with automation, Linux systems, and repeatable deployment workflows.",
+        skills: ["Docker", "Git", "GitHub Actions", "CI/CD", "Linux", "automation", "debugging", "deployment", "software architecture"],
+    },
+    {
         title: "Frontend",
-        description: "Building responsive, animated interfaces with clean state management.",
-        skills: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+        description: "Building polished interfaces with React, TypeScript, and modern UI tooling.",
+        skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     },
     {
-        title: "Backend",
-        description: "Designing APIs and business logic with a focus on clean architecture.",
-        skills: ["C#", "ASP.NET Core", "Entity Framework"],
-    },
-    {
-        title: "DevOps",
-        description: "Automating builds and deployments to keep releases smooth and repeatable.",
-        skills: ["Docker", "Git", "CI/CD"],
-    },
-    {
-        title: "Networking",
-        description: "Working with data exchange between client and server, sync and real-time.",
-        skills: ["REST APIs", "WebSockets"],
+        title: "Mobile & Other",
+        description: "Creating mobile experiences and supporting product-focused tooling across projects.",
+        skills: ["Kotlin/Jetpack Compose", "Flutter", "Riverpod", "Supabase", "Node.js", "Figma"],
     },
 ];
 
 const mySkills = [
-    "React", "TypeScript", "Tailwind", "Framer Motion",
-    "Communication", "Travail d'équipe", "Node.js", "Figma",
-    "Résolution de problèmes", "Git"
+    "C#", "ASP.NET Core", "Docker", "Linux", "React", "TypeScript",
+    "Tailwind CSS", "PostgreSQL", "GitHub Actions", "Problem-solving", "Teamwork", "Autonomy"
 ];
 
 const experiences = [
     {
         number: "01",
-        title: "Software Dev Intern",
-        description: "Built and shipped features for a stock-trading platform, owning the core layer and orders logic.",
-        image: "src/assets/exp1.jpg",
+        title: "Systems & Network Intern",
+        description: "Oct 2025 – Jan 2026 • DGI, SSIF Ambohijatovo • Built a captive portal with pfSense and FreeRADIUS over LDAP.",
+        image: "src/assets/hero.png",
     },
     {
         number: "02",
-        title: "Volunteer Dev",
-        description: "Helped a local association build tools for materials management, working on Flutter + Supabase.",
-        image: "src/assets/exp2.jpg",
+        title: "Mentor",
+        description: "2024–2026 • C2E, ENI • Supported students through practical guidance and project-oriented mentoring.",
+        image: "src/assets/pic.jpg",
     },
     {
         number: "03",
-        title: "Hackathon Contributor",
-        description: "Teamed up under time pressure to design and pitch a full product concept in 48 hours.",
-        image: "src/assets/exp3.jpg",
+        title: "Staff",
+        description: "HIU Hackathon • Helped run a national inter-university competition at ENI with a strong technical focus.",
+        image: "src/assets/pic1.jpg",
+    },
+    {
+        number: "04",
+        title: "Organizing Team Member",
+        description: "IndabaX Madagascar • Contributed to event coordination and community-facing logistics.",
+        image: "src/assets/hero.png",
     },
 ];
 
 const projects = [
     {
         title: "VirTrade",
-        description: "A virtual stock trading platform. I owned the Core layer and the Orders controller, building the order book and matching engine from scratch.",
-        tags: ["C#", "ASP.NET Core", "Entity Framework", "PostgreSQL"],
-        image: "src/assets/virtrade.jpg",
-        repoUrl: "https://github.com/yourusername/virtrade",
+        description: "Virtual stock-trading platform. I owned the Core layer and Orders controller, building the order book and matching engine.",
+        tags: ["C#", "ASP.NET Core", "Entity Framework Core", "PostgreSQL"],
+        image: "src/assets/hero.png",
+        repoUrl: "https://github.com/AinaTino/VirTrade.git",
     },
     {
         title: "Materelia",
-        description: "A materials management app with role-based access (admin, technician, user). I built the dashboard, assignments, and user management features.",
+        description: "Materials management app with role-based access for admins, technicians, and users. I built the dashboard, assignments, and user management flows.",
         tags: ["Flutter", "Supabase", "Riverpod"],
-        image: "src/assets/materelia.jpg",
-        repoUrl: "https://github.com/yourusername/materelia",
+        image: "src/assets/pic.jpg",
+        repoUrl: "https://github.com/AinaTino/Materelia.git",
     },
     {
-        title: "VirTrade",
-        description: "A virtual stock trading platform. I owned the Core layer and the Orders controller, building the order book and matching engine from scratch.",
-        tags: ["C#", "ASP.NET Core", "Entity Framework", "PostgreSQL"],
-        image: "src/assets/virtrade.jpg",
-        repoUrl: "https://github.com/yourusername/virtrade",
+        title: "Scientific Calculator",
+        description: "Calculator with a C++ backend implementing the Shunting Yard algorithm and a Qt Quick QML frontend.",
+        tags: ["C++", "Qt5", "QML"],
+        image: "src/assets/pic1.jpg",
+        repoUrl: "https://github.com/z3r0Trust024/Calculator.git",
     },
     {
-        title: "Materelia",
-        description: "A materials management app with role-based access (admin, technician, user). I built the dashboard, assignments, and user management features.",
-        tags: ["Flutter", "Supabase", "Riverpod"],
-        image: "src/assets/materelia.jpg",
-        repoUrl: "https://github.com/yourusername/materelia",
+        title: "TaskCalendar",
+        description: "Calendar and task app for planning routines and day-to-day work.",
+        tags: ["Flask", "SQLite3", "React", "Vite", "Tailwind CSS"],
+        image: "src/assets/hero.png",
+        repoUrl: "https://github.com/AinaTino/TaskCalendar.git",
+    },
+    {
+        title: "StopMiddlingMe",
+        description: "Android app that detects MITM attacks on the device layer.",
+        tags: ["Kotlin", "Jetpack Compose"],
+        image: "src/assets/pic.jpg",
+        repoUrl: "https://github.com/AinaTino/StopMiddlingMe.git",
     },
 ];
 
@@ -164,9 +176,9 @@ function App() {
         />
 
         <AboutSection
-            bio="Student developer passionate about building collaborative projects, from web to mobile. I like crafting things that are clean, well thought-out, and a little stylish."
+            bio="I build reliable backend services and infrastructure around practical products, with a focus on clean APIs, systems thinking, and delivery. I enjoy turning ideas into working software through backend development, DevOps habits, and collaborative problem-solving."
             location="Antananarivo, Madagascar"
-            education="Software Development Student"
+            education="L3 Informatique Générale, ENI"
         />
 
         <ExperienceSection experiences={experiences} />
@@ -176,9 +188,9 @@ function App() {
         <SkillsTimeline categories={skillCategories} />
 
         <ContactSection
-            email="ton.email@example.com"
-            linkedinUrl="https://linkedin.com/in/tonprofil"
-            githubUrl="https://github.com/tonusername"
+            email="andriamananatino@gmail.com"
+            linkedinUrl={undefined}
+            githubUrl="https://github.com/AinaTino"
         />
 
     </>
