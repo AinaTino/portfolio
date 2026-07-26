@@ -118,8 +118,10 @@ function App() {
 
         <Btn
             text={"Get my resume"}
+            href="/resume.pdf"
             className="fixed top-4 right-4 px-2 py-2 font-serif text-white border border-white z-[9999] mix-blend-difference"
         />
+
         <div className="flex flex-col md:flex-row gap-10 md:gap-40 items-stretch">
             <motion.div
                 whileHover={{scale: 1.05}}
@@ -155,14 +157,16 @@ function App() {
                     <h1 className="text-center font-serif text-3xl pl-7 text-amber-950">DevOps | Backend Developer</h1>
                 </div>
                 <div className="pt-6 md:mt-auto flex gap-2 md:gap-15">
-                    <Btn text={" Start a Project"}
-                        className="
-            px-5 py-2 font-serif text-2xl bg-white text-amber-950  border border-amber-950"
+                    <Btn
+                        text={" Start a Project"}
+                        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                        className="px-5 py-2 font-serif text-2xl bg-white text-amber-950 border border-amber-950"
                     />
 
-                    <Btn text={"About me"}
-                        className="
-            px-5 py-2 text-2xl font-serif bg-amber-950 text-amber-50  "
+                    <Btn
+                        text={"About me"}
+                        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+                        className="px-5 py-2 text-2xl font-serif bg-amber-950 text-amber-50"
                     />
                 </div>
             </div>
@@ -176,18 +180,24 @@ function App() {
         />
 
         <AboutSection
-            bio="I build reliable backend services and infrastructure around practical products, with a focus on clean APIs, systems thinking, and delivery. I enjoy turning ideas into working software through backend development, DevOps habits, and collaborative problem-solving."
+            id="about"
+            bio="I am Aina Tino Andriamanana, a final-year Informatics student at ENI in Madagascar,
+            focused on DevOps and backend development. I enjoy building reliable systems, designing clean APIs,
+            and turning ideas into practical, usable products. Along the way, I also like applying algorithmic thinking
+            when it helps solve problems more efficiently and keep solutions well structured. My experience spans
+            backend development, systems and networking, and collaborative work in hackathons and technical teams."
             location="Antananarivo, Madagascar"
             education="L3 Informatique Générale, ENI"
         />
 
-        <ExperienceSection experiences={experiences} />
+        <ExperienceSection id="experience" experiences={experiences} />
 
-        <ProjectsSection projects={projects} />
+        <ProjectsSection id="projects" projects={projects} />
 
-        <SkillsTimeline categories={skillCategories} />
+        <SkillsTimeline id="skills" categories={skillCategories} />
 
         <ContactSection
+            id="contact"
             email="andriamananatino@gmail.com"
             linkedinUrl="https://www.linkedin.com/in/aina-tino-andriamanana"
             githubUrl="https://github.com/AinaTino"
