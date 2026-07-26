@@ -1,6 +1,6 @@
 // components/ProjectsSection.tsx
-import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import {motion} from "framer-motion";
+import {ExternalLink} from "lucide-react";
 
 interface Project {
     title: string;
@@ -12,8 +12,9 @@ interface Project {
 }
 
 interface ProjectsSectionProps {
-    projects: Project[];
-    className?: string;
+    projects: Project[],
+    className?: string,
+    id?: string
 }
 
 function GithubIcon() {
@@ -33,34 +34,34 @@ function GithubIcon() {
             2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84
             1.233 1.91 1.233 3.22 0 4.61-2.805 5.625-5.478 5.92.43.37.815 1.096.815 2.21
             0 1.595-.015 2.88-.015 3.27 0 .32.192.694.8.576C20.565 21.795 24 17.298 24 12
-            c0-6.63-5.373-12-12-12z" />
+            c0-6.63-5.373-12-12-12z"/>
         </svg>
     );
 }
 
-function ProjectsSection({ projects, className = "" }: ProjectsSectionProps) {
+function ProjectsSection({projects, className = "", id}: ProjectsSectionProps) {
     return (
-        <section className={`w-full py-16 px-6 md:px-16 ${className}`}>
+        <section id={id} className={`w-full py-16 px-6 md:px-16 ${className}`}>
             <motion.h2
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                initial={{opacity: 0, x: -20}}
+                whileInView={{opacity: 1, x: 0}}
+                viewport={{once: true}}
+                transition={{duration: 0.5}}
                 className="text-3xl font-semibold text-amber-950 relative inline-block mb-10"
             >
                 Projects
-                <span className="absolute -bottom-2 left-0 w-12 h-[3px] bg-amber-700" />
+                <span className="absolute -bottom-2 left-0 w-12 h-[3px] bg-amber-700"/>
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {projects.map((proj, i) => (
                     <motion.div
                         key={proj.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: i * 0.1 }}
-                        whileHover={{ y: -4 }}
+                        initial={{opacity: 0, y: 20}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true}}
+                        transition={{duration: 0.4, delay: i * 0.1}}
+                        whileHover={{y: -4}}
                         className="bg-white border border-amber-700/40 shadow-xl overflow-hidden flex flex-col"
                     >
                         <img
@@ -92,26 +93,26 @@ function ProjectsSection({ projects, className = "" }: ProjectsSectionProps) {
 
                                 {proj.repoUrl && (
                                     <a
-                                    href={proj.repoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1 text-sm font-serif text-amber-950 hover:text-amber-700 transition-colors"
+                                        href={proj.repoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1 text-sm font-serif text-amber-950 hover:text-amber-700 transition-colors"
                                     >
-                                    <GithubIcon />
-                                    Code
+                                        <GithubIcon/>
+                                        Code
                                     </a>
-                                    )}
+                                )}
                                 {proj.liveUrl && (
                                     <a
-                                    href={proj.liveUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1 text-sm font-serif text-amber-950 hover:text-amber-700 transition-colors"
+                                        href={proj.liveUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1 text-sm font-serif text-amber-950 hover:text-amber-700 transition-colors"
                                     >
-                                    <ExternalLink className="w-4 h-4" />
-                                    Live
+                                        <ExternalLink className="w-4 h-4"/>
+                                        Live
                                     </a>
-                                    )}
+                                )}
                             </div>
                         </div>
                     </motion.div>
@@ -123,12 +124,12 @@ function ProjectsSection({ projects, className = "" }: ProjectsSectionProps) {
                     href="https://github.com/AinaTino"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{scale: 1.05}}
+                    whileTap={{scale: 0.95}}
                     className="px-5 py-2 font-serif text-lg bg-amber-950 text-amber-50 flex items-center gap-2"
                 >
                     View more
-                    <GithubIcon />
+                    <GithubIcon/>
                 </motion.a>
             </div>
 
