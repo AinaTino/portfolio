@@ -53,7 +53,7 @@ const skillCategories = [
 
 const mySkills = [
     "C#", "ASP.NET Core","Python","Django REST", "Flask", "Docker", "Linux", "React", "TypeScript",
-    "Tailwind CSS", "PostgreSQL", "GitHub Actions", "Problem-solving", "Teamwork", "Autonomy"
+    "Tailwind CSS", "PostgreSQL", "GitHub Actions", "Problem-solving", "Teamwork", "Autonomy", "Flutter", "Kotlin/Jetpack Compose",
 ];
 
 const experiences = [
@@ -169,7 +169,7 @@ function App() {
                     <h3 className="text-xl font-semibold">Hey, I'm </h3>
                     <h1 className="text-5xl font-semibold pl-7"> Aina Tino</h1>
                     <h1 className="text-center font-bold text-5xl pl-7 text-amber-950">ANDRIAMANANA</h1>
-                    <h1 className="text-center font-serif text-3xl pl-7 text-amber-950">DevOps | Backend Developer</h1>
+                    <h1 className="text-center font-serif text-3xl pl-7 text-amber-950">Web/Mobile Developer | DevOps</h1>
                 </div>
                 <div className="pt-6 md:mt-auto flex gap-2 md:gap-15">
                     <Btn
@@ -197,7 +197,7 @@ function App() {
         <AboutSection
             id="about"
             bio="I am Aina Tino Andriamanana, a final-year Informatics student at ENI in Madagascar,
-            focused on DevOps and backend development. I enjoy building reliable systems, designing clean APIs,
+            focused on DevOps and web/mobile development, especially in backend development. I enjoy building reliable systems, designing clean APIs,
             and turning ideas into practical, usable products. Along the way, I also like applying algorithmic thinking
             when it helps solve problems more efficiently and keep solutions well structured. My experience spans
             backend development, systems and networking, and collaborative work in hackathons and technical teams."
