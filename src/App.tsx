@@ -15,7 +15,7 @@ import {
     indabaxImg,
     emitImg,
     virtradeImg,
-    matereliaImg, emptyImg,
+    matereliaImg, emptyImg, algogames,
 } from "./assets/images";
 
 
@@ -52,7 +52,7 @@ const skillCategories = [
 ];
 
 const mySkills = [
-    "C#", "ASP.NET Core", "Docker", "Linux", "React", "TypeScript",
+    "C#", "ASP.NET Core","Python","Django REST", "Flask", "Docker", "Linux", "React", "TypeScript",
     "Tailwind CSS", "PostgreSQL", "GitHub Actions", "Problem-solving", "Teamwork", "Autonomy"
 ];
 
@@ -87,6 +87,12 @@ const experiences = [
         description: "First place in the algorithmic challenge category. Organised by ESTEM",
         image: emitImg,
     },
+    {
+        number: "06",
+        title:"AlgoGames 2",
+        description: "Participation in AlgoGames 2: fourth place in algo and third place in Art.",
+        image: algogames
+    }
 ];
 
 const projects = [
